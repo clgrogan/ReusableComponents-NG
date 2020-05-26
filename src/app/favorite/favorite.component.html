@@ -1,0 +1,44 @@
+<header>
+  <h1>Building Reusable Components</h1>
+  <p>
+    Exercise to create a component that allows selection of a favorite icon and
+    toggling the selection on and off with dynamic display.
+  </p>
+</header>
+<main>
+  <section>
+    <h1>Input Properties</h1>
+
+    <section [style.paddingLeft]="'1rem'" [style.fontSize]="'1.3rem'">
+      Using @Component Input property: Maintenance challenged per instructor
+      <div [style.paddingLeft]="'1rem'">
+        <div
+          [style.fontSize]="'1.5rem'"
+          [style.color]="isFavorite ? 'green' : 'red'"
+        >
+          <i
+            (click)="toggleIsFavorite()"
+            class="{{ isFavorite ? 'fas fa-heart' : 'fas fa-heart-broken' }}"
+          ></i>
+          isFavorite
+        </div>
+      </div>
+    </section>
+    <section [style.paddingLeft]="'1rem'" [style.fontSize]="'1.3rem'">
+      Using @Input decorator: Preferred per instructor
+      <div [style.paddingLeft]="'1rem'">
+        <div
+          [style.fontSize]="'1.5rem'"
+          [style.color]="favoriteSelected ? 'green' : 'red'"
+        >
+          <i
+            (click)="toggleFavoriteSelected()"
+            class="{{ favoriteSelected ? 'fas fa-star' : 'far fa-star' }}"
+          >
+          </i>
+          favoriteSelected
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
