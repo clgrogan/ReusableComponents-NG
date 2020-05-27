@@ -12,7 +12,6 @@ export class FavoriteComponent implements OnInit {
   constructor() {
     this.favoriteSelected = false;
     this.isFavorite = false;
-    // this.toggleFavoriteSelected();
   }
 
   ngOnInit(): void {}

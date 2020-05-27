@@ -6,5 +6,5 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  post = { title: "Title", isFavorite: true };
+  post = { title: "Title", favoriteSelected: true };
 }
