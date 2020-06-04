@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+// import { EventEmitter } from "events";
 
 @Component({
   selector: "favorite",
@@ -8,6 +9,8 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class FavoriteComponent implements OnInit {
   @Input("favoriteSelected") favoriteSelected: boolean;
+  @Output() change = new EventEmitter();
+
   isFavorite: boolean;
   constructor() {
     this.favoriteSelected = false;
@@ -15,8 +18,16 @@ export class FavoriteComponent implements OnInit {
   }
 
   ngOnInit(): void {}
-  toggleFavoriteSelected = () =>
-    (this.favoriteSelected = !this.favoriteSelected);
+  toggleFavoriteSelected = () => {
+    this.favoriteSelected = !this.favoriteSelected;
+    this.change.emit("Passing a text value when change is raised");
+    this.change.emit(["an", "array", "passed", this.favoriteSelected]);
+    this.change.emit({ newValue: this.favoriteSelected }); //Passing an object
+  };
 
   toggleIsFavorite = () => (this.isFavorite = !this.isFavorite);
+}
+
+export interface FavoriteChangedEventArgs {
+  newValue: boolean;
 }

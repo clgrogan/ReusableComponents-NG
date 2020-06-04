@@ -1,1 +1,4 @@
-<favorite [favoriteSelected]="post.favoriteSelected"></favorite>
+<favorite
+  [favoriteSelected]="post.favoriteSelected"
+  (change)="onFavoriteChanged($event)"
+></favorite>
