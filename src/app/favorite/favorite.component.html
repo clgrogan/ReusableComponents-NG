@@ -1,3 +1,10 @@
+<style>
+  .style-tag {
+    background-color: lightcoral;
+    color: darkred;
+    font-weight: bolder;
+  }
+</style>
 <header>
   <h1>Building Reusable Components</h1>
   <p>
@@ -25,7 +32,10 @@
       </div>
     </section>
     <section [style.paddingLeft]="'1rem'" [style.fontSize]="'1.3rem'">
-      Using @Input decorator: Preferred per instructor
+      <p>
+        @Input decorator: Preferred per instructor<br />
+        @Output decorator: console.log when custom 'change' event is raised.
+      </p>
       <div [style.paddingLeft]="'1rem'">
         <div
           [style.fontSize]="'1.5rem'"
@@ -39,6 +49,25 @@
           favoriteSelected
         </div>
       </div>
+    </section>
+    <section class="angular-styles">
+      <h2>Angular Styles</h2>
+      <section class="pad-left-1rem">
+        <p class="style-urls">
+          styleUrls: ...in the component @Component decorator object: ...
+          styleUrls: '['"./favorite.component.scss"']'
+        </p>
+        <p class="component-styles">
+          styles: ...in the component @Component decorator object: ... styles:
+          [<br />`<br /><span class="pad-left-1rem">css goes here</span
+          ><br />`<br />],
+        </p>
+        <p class="style-tag">
+          &lt;style&gt;css goes here&lt;/style&gt;<br />
+          In Angular you may also use the style element/tag in the HTML code.<br />
+          Who would do such a horrible thing?
+        </p>
+      </section>
     </section>
   </section>
 </main>

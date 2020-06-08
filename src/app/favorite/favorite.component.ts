@@ -5,24 +5,32 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
   selector: "favorite",
   templateUrl: "./favorite.component.html",
   styleUrls: ["./favorite.component.scss"],
+  styles: [
+    `
+      .component-styles {
+        font-size: 1.5rem;
+      }
+      .pad-left-1rem {
+        padding-left: 1rem;
+      }
+    `,
+  ],
   inputs: ["isFavorite"],
 })
-export class FavoriteComponent implements OnInit {
+export class FavoriteComponent {
   @Input("favoriteSelected") favoriteSelected: boolean;
-  @Output() change = new EventEmitter();
+  @Output("change") clicky = new EventEmitter();
 
   isFavorite: boolean;
   constructor() {
     this.favoriteSelected = false;
     this.isFavorite = false;
   }
-
-  ngOnInit(): void {}
   toggleFavoriteSelected = () => {
     this.favoriteSelected = !this.favoriteSelected;
-    this.change.emit("Passing a text value when change is raised");
-    this.change.emit(["an", "array", "passed", this.favoriteSelected]);
-    this.change.emit({ newValue: this.favoriteSelected }); //Passing an object
+    this.clicky.emit("Passing a text value when change is raised");
+    this.clicky.emit(["an", "array", "passed", this.favoriteSelected]);
+    this.clicky.emit({ newValue: this.favoriteSelected }); //Passing an object
   };
 
   toggleIsFavorite = () => (this.isFavorite = !this.isFavorite);
